@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-def fibo(n)
-  n < 2 ? n : fibo(n - 1) + fibo(n - 2)
-end 
+def fibo(num, seq = [0, 1])
+  p seq
+  return seq.take(num) if seq.length > num
 
+  seq << seq[-2] + seq[-1]
+  fibo(num, seq)
+end
 
-test = [0, 1, 1, 2, 3, 5, 8, 13]
-# p test
 p fibo(7)
